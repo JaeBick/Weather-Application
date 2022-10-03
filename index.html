@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,33 +19,37 @@
   </head>
   <body>
     <div class="container">
-      <h1>City</h1>
-      <ul>
-        <li>time stamp</li>
-        <li>description of weather</li>
-      </ul>
-      <div class="row">
-        <div class="col-6">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/48/sunny.png"
-            alt="sunny"
-          />
-          12ºC | Fº
+      <div class="weather-app">
+        <h1>City</h1>
+        <ul>
+          <li>time stamp</li>
+          <li>description of weather</li>
+        </ul>
+        <div class="row">
+          <div class="col-6">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/48/sunny.png"
+              alt="sunny"
+            />
+            12ºC | Fº
+          </div>
+          <div class="col-6">
+            <ul>
+              <li>Precipitation: 0%</li>
+              <li>humidity: 73%</li>
+              <li>wind: 5 km/h</li>
+            </ul>
+          </div>
         </div>
-        <div class="col-6">
-          <ul>
-            <li>Precipitation: 0%</li>
-            <li>humidity: 73%</li>
-            <li>wind: 5 km/h</li>
-          </ul>
-        </div>
+        <small>
+          <a href="https://neon-lokum-bbf203.netlify.app" target="_blank">
+            Open-source code,</a
+          >
+          by Jamie Bickley
+        </small>
       </div>
     </div>
-    <small>
-      <a href="https://neon-lokum-bbf203.netlify.app" target="_blank">
-        Open-source code, by Jamie Bickley</a
-      >
-    </small>
+
     <script src="src/index.js"></script>
   </body>
 </html>
