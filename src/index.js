@@ -30,7 +30,10 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -57,15 +60,25 @@ function handleSubmit(event) {
 
 function displayFarenheitTemperature(event) {
   event.preventDefault();
-  let farenheitTemperature = (14 * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
+  let farenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(farenheitTemperature);
 }
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("vancouver");
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 let farenheitLink = document.querySelector("#farenheit-link");
 farenheitLink.addEventListener("click", displayFarenheitTemperature);
