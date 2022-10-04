@@ -42,6 +42,20 @@ function displayTemperature(response) {
   );
 }
 
-let apiKey = "7e65b283b85da5a5d3f90632b61d9f83";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=san francisco&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayTemperature);
+function search(city) {
+  let apiKey = "7e65b283b85da5a5d3f90632b61d9f83";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("vancouver");
