@@ -1,6 +1,6 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
-  let hours = date.gethours();
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -46,7 +46,7 @@ function displayTemperature(response) {
 }
 
 function search(city) {
-  let apiKey = "7e65b283b85da5a5d3f90632b61d9f83";
+  let apiKey = "4418a7d17163c032db25cbde76c6c985";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayTemperature);
@@ -54,7 +54,7 @@ function search(city) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  let cityInputElement = document.querySelector("city-input");
+  let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
 
@@ -75,10 +75,10 @@ let celsiusTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("vancouver");
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", displayFarenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-let farenheitLink = document.querySelector("#farenheit-link");
-farenheitLink.addEventListener("click", displayFarenheitTemperature);
+search("vancouver");
